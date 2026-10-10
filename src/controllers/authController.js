@@ -1,14 +1,13 @@
-// src/controllers/authController.js
+
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
-// Helper function to generate JWT
+
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '7d' });
 };
 
-// @desc    Auth user & get token (Login)
-// @route   POST /auth/login
+
 const login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -30,8 +29,7 @@ const login = async (req, res) => {
   }
 };
 
-// @desc    Register first admin (Temporary route for setup)
-// @route   POST /auth/register
+
 const registerAdmin = async (req, res) => {
   const { name, email, password } = req.body;
 
