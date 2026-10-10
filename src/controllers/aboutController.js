@@ -3,7 +3,7 @@ const About = require('../models/About');
 const getAbout = async (req, res) => {
   try {
     const about = await About.findOne();
-    res.json(about || {}); // Return empty object if none exists yet
+    res.json(about || {}); 
   } catch (error) {
     res.status(500).json({ message: 'Error fetching about data' });
   }
