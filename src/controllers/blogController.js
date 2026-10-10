@@ -1,4 +1,4 @@
-const Blog = require('../models/Blog'); // Model created on Day 3
+const Blog = require('../models/Blog'); 
 
 const getBlogs = async (req, res) => {
   try {
