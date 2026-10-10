@@ -4,10 +4,10 @@ const router = express.Router();
 const { getProjects, createProject, updateProject, deleteProject } = require('../controllers/projectController');
 const { protect } = require('../middleware/authMiddleware');
 
-// Public route
+
 router.get('/', getProjects);
 
-// Protected routes (require token)
+
 router.post('/', protect, createProject);
 router.put('/:id', protect, updateProject);
 router.delete('/:id', protect, deleteProject);
