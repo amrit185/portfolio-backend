@@ -5,12 +5,12 @@ const submitContactForm = async (req, res) => {
   const { name, email, message } = req.body;
 
   try {
-    // 1. Save message to MongoDB
+
     const newMessage = await Message.create({ name, email, message });
 
-    // 2. Send Email Notification
+ 
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // Use 'gmail' or your email provider
+      service: 'gmail', 
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
