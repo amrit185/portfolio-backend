@@ -1,8 +1,7 @@
-// src/controllers/projectController.js
+
 const Project = require('../models/Project');
 
-// @desc    Get all projects (Public)
-// @route   GET /api/projects
+
 const getProjects = async (req, res) => {
   try {
     const projects = await Project.find().sort({ createdAt: -1 });
@@ -12,20 +11,18 @@ const getProjects = async (req, res) => {
   }
 };
 
-// @desc    Create a project (Private/Admin)
-// @route   POST /api/projects
+
 const createProject = async (req, res) => {
   try {
     const project = await Project.create(req.body);
     res.status(201).json(project);
   } catch (error) {
-    console.error("PROJECT CREATE ERROR:", error.message, error); // <--- Add this
+    console.error("PROJECT CREATE ERROR:", error.message, error); 
     res.status(400).json({ message: 'Invalid project data', error: error.message });
   }
 };
 
-// @desc    Update a project (Private/Admin)
-// @route   PUT /api/projects/:id
+
 const updateProject = async (req, res) => {
   try {
     const project = await Project.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -36,8 +33,7 @@ const updateProject = async (req, res) => {
   }
 };
 
-// @desc    Delete a project (Private/Admin)
-// @route   DELETE /api/projects/:id
+
 const deleteProject = async (req, res) => {
   try {
     const project = await Project.findByIdAndDelete(req.params.id);
